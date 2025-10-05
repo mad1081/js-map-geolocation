@@ -113,6 +113,319 @@
         .retry-btn:hover {
             background-color: #1565c0;
         }
+
+        /* Air Quality Widget Styles */
+        .air-quality-widget {
+            margin: 20px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 5px solid #28a745;
+        }
+
+        .air-quality-widget.good {
+            border-left-color: #28a745;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        }
+
+        .air-quality-widget.moderate {
+            border-left-color: #ffc107;
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        }
+
+        .air-quality-widget.unhealthy {
+            border-left-color: #fd7e14;
+            background: linear-gradient(135deg, #ffe0b3 0%, #ffcc80 100%);
+        }
+
+        .air-quality-widget.hazardous {
+            border-left-color: #dc3545;
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+        }
+
+        .air-quality-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .air-quality-icon {
+            font-size: 2.5em;
+            animation: pulse 2s infinite;
+        }
+
+        .air-quality-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .air-quality-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            color: #333;
+        }
+
+        .air-quality-details {
+            font-size: 0.95em;
+            color: #666;
+            margin: 0;
+        }
+
+        .air-quality-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Air Quality Bubbles on Map */
+        .air-quality-bubble {
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            animation: bubbleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Enhanced Air Quality Widget */
+        .air-quality-widget.enhanced {
+            margin: 20px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: all 0.4s ease;
+            border-left: 6px solid #28a745;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .air-quality-widget.enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #28a745, #ffc107, #fd7e14, #dc3545, #6f42c1);
+            opacity: 0.7;
+        }
+        
+        .air-quality-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .air-quality-main {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .air-quality-icon-large {
+            font-size: 4em;
+            animation: pulse 2s infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+        
+        .air-quality-value-large {
+            font-size: 3.5em;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 0;
+        }
+        
+        .air-quality-category {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .air-quality-description {
+            font-size: 1em;
+            color: #666;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+        
+        .responsible-pollutant {
+            background: rgba(0,0,0,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        
+        .pollutant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 15px;
+        }
+        
+        .pollutant-item {
+            text-align: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .pollutant-item:hover {
+            transform: translateY(-2px);
+        }
+        
+        .pollutant-name {
+            font-size: 0.8em;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .pollutant-value {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .pollutant-unit {
+            font-size: 0.7em;
+            color: #999;
+        }
+        
+        .pollutant-aqi {
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 3px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            color: white;
+        }
+        
+        /* Heatmap Controls */
+        .heatmap-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .heatmap-toggle {
+            background: #1976d2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+        
+        .heatmap-toggle:hover {
+            background: #1565c0;
+        }
+        
+        .heatmap-toggle.active {
+            background: #4caf50;
+        }
+        
+        /* Enhanced Bubbles */
+        .air-quality-bubble-enhanced {
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.8);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: bubbleFloat 4s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        
+        .air-quality-bubble-enhanced:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #1976d2;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .air-quality-widget.enhanced {
+                padding: 20px 15px;
+            }
+            
+            .air-quality-main {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .air-quality-icon-large {
+                font-size: 3em;
+            }
+            
+            .air-quality-value-large {
+                font-size: 2.5em;
+            }
+            
+            .pollutant-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .heatmap-controls {
+                top: 5px;
+                right: 5px;
+                padding: 8px;
+            }
+        }
+        
     </style>
 </head>
 <body>
@@ -125,7 +438,42 @@
         </div>
         
         <!-- Map container -->
-        <div id="map"></div>
+        <div id="map">
+            <!-- Heatmap Controls -->
+            <div class="heatmap-controls">
+                <button class="heatmap-toggle" id="heatmapToggle" onclick="toggleHeatmap()">
+                    🔥 Heatmap
+                </button>
+                <button class="heatmap-toggle" id="zonesToggle" onclick="toggleZones()" style="margin-left: 8px;">
+                    🗺️ Zones
+                </button>
+            </div>
+        </div>
+        
+        <!-- Enhanced Air Quality Widget -->
+        <div id="airQualityWidget" class="air-quality-widget enhanced" style="display: none;">
+            <div class="air-quality-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span class="loading-spinner" id="loadingSpinner" style="display: none;"></span>
+                    <span id="dataSource">Loading...</span>
+                </div>
+                <div id="lastUpdated" style="font-size: 0.8em; color: #666;"></div>
+            </div>
+            
+            <div class="air-quality-main">
+                <div class="air-quality-icon-large" id="airQualityIcon">🌿</div>
+                <div>
+                    <div class="air-quality-value-large" id="airQualityValue">--</div>
+                    <div class="air-quality-category" id="airQualityCategory">Loading...</div>
+                    <div class="air-quality-description" id="airQualityDescription">Please wait while we fetch the latest data.</div>
+                    <div class="responsible-pollutant" id="responsiblePollutant" style="display: none;"></div>
+                </div>
+            </div>
+            
+            <div class="pollutant-grid" id="pollutantGrid" style="display: none;">
+                <!-- Pollutant data will be populated here -->
+            </div>
+        </div>
         
         <!-- Location information -->
         <div id="locationInfo" class="location-info" style="display: none;">
@@ -138,12 +486,75 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
             crossorigin=""></script>
+    
+    <!-- Leaflet Heat Plugin -->
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <!-- Turf.js for Voronoi zones -->
+    <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
 
     <script>
         // Global variables for map and marker
         let map;
         let userMarker;
         let userLocation = null;
+        let airQualityBubbles = [];
+        let airQualityData = null;
+        let heatmapLayer = null;
+        let heatmapEnabled = false;
+        let nearbyStations = [];
+        let zonesLayer = null;
+        let zonesEnabled = false;
+        
+        // EPA AQI Breakpoints (from AQI Technical Assistance Document)
+        const AQI_BREAKPOINTS = {
+            'pm25': [
+                { aqi: [0, 50], conc: [0, 12.0] },
+                { aqi: [51, 100], conc: [12.1, 35.4] },
+                { aqi: [101, 150], conc: [35.5, 55.4] },
+                { aqi: [151, 200], conc: [55.5, 150.4] },
+                { aqi: [201, 300], conc: [150.5, 250.4] },
+                { aqi: [301, 500], conc: [250.5, 500.4] }
+            ],
+            'pm10': [
+                { aqi: [0, 50], conc: [0, 54] },
+                { aqi: [51, 100], conc: [55, 154] },
+                { aqi: [101, 150], conc: [155, 254] },
+                { aqi: [151, 200], conc: [255, 354] },
+                { aqi: [201, 300], conc: [355, 424] },
+                { aqi: [301, 500], conc: [425, 604] }
+            ],
+            'o3': [
+                { aqi: [0, 50], conc: [0, 0.054] },
+                { aqi: [51, 100], conc: [0.055, 0.070] },
+                { aqi: [101, 150], conc: [0.071, 0.085] },
+                { aqi: [151, 200], conc: [0.086, 0.105] },
+                { aqi: [201, 300], conc: [0.106, 0.200] }
+            ],
+            'co': [
+                { aqi: [0, 50], conc: [0, 4.4] },
+                { aqi: [51, 100], conc: [4.5, 9.4] },
+                { aqi: [101, 150], conc: [9.5, 12.4] },
+                { aqi: [151, 200], conc: [12.5, 15.4] },
+                { aqi: [201, 300], conc: [15.5, 30.4] },
+                { aqi: [301, 500], conc: [30.5, 50.4] }
+            ],
+            'so2': [
+                { aqi: [0, 50], conc: [0, 35] },
+                { aqi: [51, 100], conc: [36, 75] },
+                { aqi: [101, 150], conc: [76, 185] },
+                { aqi: [151, 200], conc: [186, 304] },
+                { aqi: [201, 300], conc: [305, 604] },
+                { aqi: [301, 500], conc: [605, 1004] }
+            ],
+            'no2': [
+                { aqi: [0, 50], conc: [0, 53] },
+                { aqi: [51, 100], conc: [54, 100] },
+                { aqi: [101, 150], conc: [101, 360] },
+                { aqi: [151, 200], conc: [361, 649] },
+                { aqi: [201, 300], conc: [650, 1249] },
+                { aqi: [301, 500], conc: [1250, 2049] }
+            ]
+        };
 
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
@@ -152,11 +563,141 @@
         });
 
         /**
+         * Truncate concentration values per EPA rules
+         */
+        function truncateConcentration(pollutant, value) {
+            if (pollutant === 'pm25') return Math.floor(value * 10) / 10; // 0.1 µg/m³
+            if (pollutant === 'o3') return Math.floor(value * 1000) / 1000; // 0.001 ppm
+            if (pollutant === 'pm10') return Math.floor(value); // 1 µg/m³
+            if (pollutant === 'co') return Math.floor(value * 10) / 10; // 0.1 ppm
+            if (pollutant === 'so2' || pollutant === 'no2') return Math.floor(value); // 1 ppb
+            return value;
+        }
+
+        /**
+         * Calculate AQI for a specific pollutant using EPA breakpoints
+         */
+        function calculateAQI(pollutant, concentration) {
+            const breakpoints = AQI_BREAKPOINTS[pollutant];
+            if (!breakpoints) return null;
+
+            const truncatedConc = truncateConcentration(pollutant, concentration);
+            
+            for (let i = 0; i < breakpoints.length; i++) {
+                const bp = breakpoints[i];
+                if (truncatedConc >= bp.conc[0] && truncatedConc <= bp.conc[1]) {
+                    const aqi = Math.round(
+                        ((bp.aqi[1] - bp.aqi[0]) / (bp.conc[1] - bp.conc[0])) * 
+                        (truncatedConc - bp.conc[0]) + bp.aqi[0]
+                    );
+                    return aqi;
+                }
+            }
+            return null;
+        }
+
+        /**
+         * Calculate NowCast for PM2.5/PM10 (12-hour weighted average)
+         */
+        function calculateNowCast(hourlyData) {
+            if (!hourlyData || hourlyData.length < 12) return null;
+            
+            // Get last 12 hours of data
+            const last12Hours = hourlyData.slice(-12);
+            const weights = [];
+            
+            // Calculate weights (more recent hours weighted more)
+            for (let i = 0; i < last12Hours.length; i++) {
+                weights[i] = Math.pow(0.5, last12Hours.length - 1 - i);
+            }
+            
+            // Calculate weighted average
+            let weightedSum = 0;
+            let weightSum = 0;
+            
+            for (let i = 0; i < last12Hours.length; i++) {
+                if (last12Hours[i] !== null && last12Hours[i] !== undefined) {
+                    weightedSum += last12Hours[i] * weights[i];
+                    weightSum += weights[i];
+                }
+            }
+            
+            return weightSum > 0 ? weightedSum / weightSum : null;
+        }
+
+        /**
+         * Get AQI color based on value
+         */
+        function getAQIColor(aqi) {
+            if (aqi <= 50) return '#28a745'; // Good - Green
+            if (aqi <= 100) return '#ffc107'; // Moderate - Yellow
+            if (aqi <= 150) return '#fd7e14'; // Unhealthy for Sensitive - Orange
+            if (aqi <= 200) return '#dc3545'; // Unhealthy - Red
+            if (aqi <= 300) return '#6f42c1'; // Very Unhealthy - Purple
+            return '#8b0000'; // Hazardous - Dark Red
+        }
+
+        /**
+         * Get AQI category information
+         */
+        function getAQICategory(aqi) {
+            if (aqi <= 50) {
+                return {
+                    class: 'good',
+                    icon: '🌿',
+                    title: 'Good',
+                    description: 'Air quality is satisfactory and poses little or no risk.',
+                    color: '#28a745'
+                };
+            } else if (aqi <= 100) {
+                return {
+                    class: 'moderate',
+                    icon: '⚠️',
+                    title: 'Moderate',
+                    description: 'Air quality is acceptable for most people, but sensitive groups may experience minor issues.',
+                    color: '#ffc107'
+                };
+            } else if (aqi <= 150) {
+                return {
+                    class: 'unhealthy',
+                    icon: '❌',
+                    title: 'Unhealthy for Sensitive Groups',
+                    description: 'Sensitive groups should avoid prolonged outdoor exertion.',
+                    color: '#fd7e14'
+                };
+            } else if (aqi <= 200) {
+                return {
+                    class: 'unhealthy',
+                    icon: '🚫',
+                    title: 'Unhealthy',
+                    description: 'Everyone should avoid outdoor activities.',
+                    color: '#dc3545'
+                };
+            } else if (aqi <= 300) {
+                return {
+                    class: 'hazardous',
+                    icon: '🚨',
+                    title: 'Very Unhealthy',
+                    description: 'Everyone should stay indoors.',
+                    color: '#6f42c1'
+                };
+            } else {
+                return {
+                    class: 'hazardous',
+                    icon: '☠️',
+                    title: 'Hazardous',
+                    description: 'Emergency conditions. Everyone should avoid all outdoor activities.',
+                    color: '#8b0000'
+                };
+            }
+        }
+
+        /**
          * Initialize the map with default view
          */
         function initializeMap() {
-            // Create map with default center (London) and zoom level
-            map = L.map('map').setView([51.505, -0.09], 13);
+            // Create map with default center (New York) and zoom level
+            map = L.map('map').setView([40.7128, -74.0060], 13);
             
             // Add OpenStreetMap tiles
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -166,29 +707,197 @@
         }
 
         /**
+         * Toggle heatmap visibility
+         */
+        function toggleHeatmap() {
+            const toggle = document.getElementById('heatmapToggle');
+            
+            if (heatmapEnabled) {
+                if (heatmapLayer) {
+                    map.removeLayer(heatmapLayer);
+                }
+                heatmapEnabled = false;
+                toggle.classList.remove('active');
+                toggle.textContent = '🔥 Heatmap';
+            } else {
+                if (nearbyStations.length > 0) {
+                    createHeatmap();
+                    heatmapEnabled = true;
+                    toggle.classList.add('active');
+                    toggle.textContent = '🔥 Hide Heatmap';
+                } else {
+                    alert('No air quality data available for heatmap');
+                }
+            }
+        }
+
+        /** Toggle Voronoi AQI Zones */
+        function toggleZones() {
+            const toggle = document.getElementById('zonesToggle');
+            if (zonesEnabled) {
+                if (zonesLayer) {
+                    map.removeLayer(zonesLayer);
+                }
+                zonesEnabled = false;
+                toggle.classList.remove('active');
+                toggle.textContent = '🗺️ Zones';
+            } else {
+                if (nearbyStations.length > 0) {
+                    createZonesLayer();
+                    zonesEnabled = true;
+                    toggle.classList.add('active');
+                    toggle.textContent = '🗺️ Hide Zones';
+                } else {
+                    alert('No air quality data available for zones');
+                }
+            }
+        }
+
+        /** Create Voronoi AQI Zones layer */
+        function createZonesLayer() {
+            if (zonesLayer) {
+                map.removeLayer(zonesLayer);
+            }
+
+            try {
+                const points = nearbyStations.map((s, i) => turf.point([s.lng, s.lat], { index: i, aqi: s.aqi }));
+                const fc = turf.featureCollection(points);
+
+                const b = map.getBounds();
+                const pad = 0.05;
+                const bbox = [
+                    b.getWest() - pad, b.getSouth() - pad,
+                    b.getEast() + pad, b.getNorth() + pad
+                ];
+
+                const vor = turf.voronoi(fc, { bbox });
+
+                if (!vor || !vor.features || vor.features.length === 0) {
+                    // Fallback: circles
+                    zonesLayer = L.layerGroup(
+                        nearbyStations.map(s => L.circle([s.lat, s.lng], {
+                            radius: 1200,
+                            color: getAQIColor(s.aqi),
+                            fillColor: getAQIColor(s.aqi),
+                            fillOpacity: 0.28,
+                            weight: 1
+                        }))
+                    ).addTo(map);
+                    return;
+                }
+
+                zonesLayer = L.geoJSON(vor, {
+                    style: (feature) => {
+                        // Determine color by nearest station AQI
+                        const c = turf.centroid(feature);
+                        let nearest = { d: Infinity, aqi: 0 };
+                        nearbyStations.forEach(s => {
+                            const d = turf.distance(c, turf.point([s.lng, s.lat]));
+                            if (d < nearest.d) nearest = { d, aqi: s.aqi };
+                        });
+                        const color = getAQIColor(nearest.aqi);
+                        return { color, weight: 1, fillColor: color, fillOpacity: 0.32 };
+                    },
+                    onEachFeature: (feature, layer) => {
+                        const c = turf.centroid(feature);
+                        let best = { d: Infinity, station: null };
+                        nearbyStations.forEach(s => {
+                            const d = turf.distance(c, turf.point([s.lng, s.lat]));
+                            if (d < best.d) best = { d, station: s };
+                        });
+                        if (best.station) {
+                            const aqi = best.station.aqi;
+                            const cat = getAQICategory(aqi);
+                            layer.bindPopup(`<div style="text-align:center;"><strong>${cat.icon} AQI Zone</strong><br><small>${cat.title}</small><br><small>AQI: ${aqi}</small></div>`);
+                        }
+                    }
+                }).addTo(map);
+            } catch (e) {
+                console.error('createZonesLayer error:', e);
+            }
+        }
+
+        /**
+         * Create heatmap layer from nearby stations
+         */
+        function createHeatmap() {
+            if (heatmapLayer) {
+                map.removeLayer(heatmapLayer);
+            }
+
+            const heatmapData = nearbyStations.map(station => {
+                const clamped = Math.min(500, Math.max(0, station.aqi));
+                const weight = Math.pow(clamped / 500, 1.4); // accentuate differences
+                return [station.lat, station.lng, weight];
+            });
+
+            const zoom = map.getZoom ? map.getZoom() : 13;
+            const radius = Math.max(18, Math.min(80, (zoom - 5) * 10));
+            const blur = Math.max(12, Math.min(48, radius * 0.75));
+
+            heatmapLayer = L.heatLayer(heatmapData, {
+                radius,
+                blur,
+                maxZoom: 19,
+                gradient: {
+                    0.00: '#1a9850',
+                    0.15: '#66bd63',
+                    0.30: '#fee08b',
+                    0.45: '#fdae61',
+                    0.60: '#f46d43',
+                    0.75: '#d73027',
+                    0.90: '#7b3294'
+                }
+            }).addTo(map);
+        }
+
+        // Recreate heatmap on zoom to keep visual intensity crisp
+        document.addEventListener('DOMContentLoaded', function() {
+            if (map) {
+                map.on('zoomend', function() {
+                    if (heatmapEnabled) {
+                        createHeatmap();
+                    }
+                });
+            }
+        });
+
+        /**
          * Get user's current location using Geolocation API
          */
         function getCurrentLocation() {
-            updateStatus('Getting your location...', 'loading');
+            const lat = 42.3589; // широта Нью-Йорка
+            const lng = -71.0928; // долгота Нью-Йорка
+            const accuracy = 100;   
+
+            userLocation = { lat, lng, accuracy };
+            updateStatus('Using demo location: Cambridge, USA', 'success');
+
+            // Обновляем карту и маркер
+            map.setView([lat, lng], 15);
+            addUserMarker(lat, lng);
+            reverseGeocode(lat, lng);
+            fetchAirQualityData(lat, lng);
+            // updateStatus('Getting your location...', 'loading');
             
-            // Check if geolocation is supported
-            if (!navigator.geolocation) {
-                showError('Geolocation is not supported by this browser.');
-                return;
-            }
+            // // Check if geolocation is supported
+            // if (!navigator.geolocation) {
+            //     showError('Geolocation is not supported by this browser.');
+            //     return;
+            // }
 
-            // Get current position with options for better accuracy
-            const options = {
-                enableHighAccuracy: true,
-                timeout: 10000,
-                maximumAge: 300000 // 5 minutes
-            };
+            // // Get current position with options for better accuracy
+            // const options = {
+            //     enableHighAccuracy: true,
+            //     timeout: 10000,
+            //     maximumAge: 300000 // 5 minutes
+            // };
 
-            navigator.geolocation.getCurrentPosition(
-                onLocationSuccess,
-                onLocationError,
-                options
-            );
+            // navigator.geolocation.getCurrentPosition(
+            //     onLocationSuccess,
+            //     onLocationError,
+            //     options
+            // );
         }
 
         /**
@@ -211,6 +920,9 @@
             
             // Perform reverse geocoding
             reverseGeocode(lat, lng);
+            
+            // Fetch air quality data
+            fetchAirQualityData(lat, lng);
         }
 
         /**
@@ -266,6 +978,508 @@
                 </div>
             `).openPopup();
         }
+
+        /**
+         * Fetch comprehensive air quality data from multiple APIs
+         */
+        async function fetchAirQualityData(lat, lng) {
+            try {
+                updateStatus('Getting air quality data...', 'loading');
+                showLoadingSpinner(true);
+                
+                // Try OpenAQ API first for global data
+                const openAQResponse = await fetch(
+                    `https://api.openaq.org/v2/latest?coordinates=${lat},${lng}&radius=50000&limit=20`,
+                    {
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }
+                );
+                
+                if (openAQResponse.ok) {
+                    const data = await openAQResponse.json();
+                    if (data.results && data.results.length > 0) {
+                        processOpenAQData(data.results, lat, lng);
+                        // Show zones by default for stronger visual
+                        setTimeout(() => { if (!zonesEnabled) toggleZones(); }, 0);
+                        return;
+                    }
+                }
+                
+                // Fallback to AirNow API (US only)
+                const airNowResponse = await fetch(
+                    `https://www.airnowapi.org/aq/observation/latLong/current/?format=application/json&latitude=${lat}&longitude=${lng}&distance=50&API_KEY=demo`
+                );
+                
+                if (airNowResponse.ok) {
+                    const data = await airNowResponse.json();
+                    if (data && data.length > 0) {
+                        processAirNowData(data, lat, lng);
+                        setTimeout(() => { if (!zonesEnabled) toggleZones(); }, 0);
+                        return;
+                    }
+                }
+                
+                // If both APIs fail, show mock data for demonstration
+                showMockAirQualityData(lat, lng);
+                setTimeout(() => { if (!zonesEnabled) toggleZones(); }, 0);
+                
+            } catch (error) {
+                console.error('Air quality API error:', error);
+                showMockAirQualityData(lat, lng);
+            } finally {
+                showLoadingSpinner(false);
+            }
+        }
+
+        /**
+         * Process OpenAQ API data with multiple stations
+         */
+        function processOpenAQData(stations, lat, lng) {
+            nearbyStations = [];
+            const pollutants = {};
+            let maxAQI = 0;
+            let responsiblePollutant = null;
+
+            // Process each station
+            stations.forEach(station => {
+                const stationData = {
+                    lat: station.coordinates.latitude,
+                    lng: station.coordinates.longitude,
+                    name: station.location,
+                    measurements: {},
+                    aqi: 0
+                };
+
+                // Process measurements for this station
+                station.measurements.forEach(measurement => {
+                    const param = measurement.parameter.toLowerCase();
+                    const value = measurement.value;
+                    const unit = measurement.unit;
+                    
+                    // Store raw measurement
+                    stationData.measurements[param] = {
+                        value: value,
+                        unit: unit,
+                        lastUpdated: measurement.lastUpdated
+                    };
+
+                    // Calculate AQI for this pollutant
+                    const aqi = calculateAQI(param, value);
+                    if (aqi) {
+                        stationData.measurements[param].aqi = aqi;
+                        
+                        // Track maximum AQI
+                        if (aqi > maxAQI) {
+                            maxAQI = aqi;
+                            responsiblePollutant = param;
+                        }
+                    }
+
+                    // Aggregate pollutants across all stations
+                    if (!pollutants[param]) {
+                        pollutants[param] = [];
+                    }
+                    pollutants[param].push(value);
+                });
+
+                // Calculate station AQI (max of all pollutant AQIs)
+                const stationAQIs = Object.values(stationData.measurements)
+                    .map(m => m.aqi)
+                    .filter(aqi => aqi !== null && aqi !== undefined);
+                
+                stationData.aqi = stationAQIs.length > 0 ? Math.max(...stationAQIs) : 0;
+                nearbyStations.push(stationData);
+            });
+
+            // Calculate average concentrations for main pollutants
+            const avgPollutants = {};
+            Object.keys(pollutants).forEach(param => {
+                const values = pollutants[param];
+                avgPollutants[param] = values.reduce((sum, val) => sum + val, 0) / values.length;
+            });
+
+            airQualityData = {
+                aqi: maxAQI,
+                responsiblePollutant: responsiblePollutant,
+                pollutants: avgPollutants,
+                source: 'OpenAQ',
+                location: 'Multiple Stations',
+                stations: nearbyStations,
+                lastUpdated: new Date().toISOString()
+            };
+
+            displayEnhancedAirQualityWidget();
+            addEnhancedAirQualityBubbles(lat, lng);
+            updateStatus('Air quality data loaded successfully!', 'success');
+        }
+
+        /**
+         * Process AirNow API data
+         */
+        function processAirNowData(stations, lat, lng) {
+            nearbyStations = [];
+            const pollutants = {};
+            let maxAQI = 0;
+            let responsiblePollutant = null;
+
+            stations.forEach(station => {
+                const stationData = {
+                    lat: station.Latitude,
+                    lng: station.Longitude,
+                    name: station.ReportingArea,
+                    measurements: {},
+                    aqi: station.AQI || 0
+                };
+
+                // Process different pollutants
+                const pollutantMap = {
+                    'PM2.5': 'pm25',
+                    'PM10': 'pm10',
+                    'O3': 'o3',
+                    'CO': 'co',
+                    'SO2': 'so2',
+                    'NO2': 'no2'
+                };
+
+                Object.keys(pollutantMap).forEach(airNowParam => {
+                    const param = pollutantMap[airNowParam];
+                    const value = station[airNowParam];
+                    
+                    if (value !== null && value !== undefined) {
+                        stationData.measurements[param] = {
+                            value: value,
+                            unit: getPollutantUnit(param),
+                            aqi: calculateAQI(param, value),
+                            lastUpdated: station.DateObserved
+                        };
+
+                        if (!pollutants[param]) {
+                            pollutants[param] = [];
+                        }
+                        pollutants[param].push(value);
+
+                        const aqi = calculateAQI(param, value);
+                        if (aqi && aqi > maxAQI) {
+                            maxAQI = aqi;
+                            responsiblePollutant = param;
+                        }
+                    }
+                });
+
+                nearbyStations.push(stationData);
+            });
+
+            // Calculate average concentrations
+            const avgPollutants = {};
+            Object.keys(pollutants).forEach(param => {
+                const values = pollutants[param];
+                avgPollutants[param] = values.reduce((sum, val) => sum + val, 0) / values.length;
+            });
+
+            airQualityData = {
+                aqi: maxAQI,
+                responsiblePollutant: responsiblePollutant,
+                pollutants: avgPollutants,
+                source: 'AirNow',
+                location: 'US EPA Stations',
+                stations: nearbyStations,
+                lastUpdated: new Date().toISOString()
+            };
+
+            displayEnhancedAirQualityWidget();
+            addEnhancedAirQualityBubbles(lat, lng);
+            updateStatus('Air quality data loaded successfully!', 'success');
+        }
+
+        /**
+         * Get pollutant unit
+         */
+        function getPollutantUnit(pollutant) {
+            const units = {
+                'pm25': 'µg/m³',
+                'pm10': 'µg/m³',
+                'o3': 'ppm',
+                'co': 'ppm',
+                'so2': 'ppb',
+                'no2': 'ppb'
+            };
+            return units[pollutant] || '';
+        }
+
+        /**
+         * Show/hide loading spinner
+         */
+        function showLoadingSpinner(show) {
+            const spinner = document.getElementById('loadingSpinner');
+            if (spinner) {
+                spinner.style.display = show ? 'inline-block' : 'none';
+            }
+        }
+
+        /**
+         * Process OpenAQ API data
+         */
+        function processAirQualityData(data, lat, lng) {
+            const measurements = data.measurements || [];
+            let pm25Value = null;
+            let aqiValue = null;
+            
+            // Find PM2.5 and AQI values
+            measurements.forEach(measurement => {
+                if (measurement.parameter === 'pm25') {
+                    pm25Value = measurement.value;
+                }
+                if (measurement.parameter === 'aqi') {
+                    aqiValue = measurement.value;
+                }
+            });
+            
+            // Convert PM2.5 to AQI if needed
+            if (pm25Value && !aqiValue) {
+                aqiValue = pm25ToAQI(pm25Value);
+            }
+            
+            airQualityData = {
+                aqi: aqiValue || 50, // Default to moderate if no data
+                pm25: pm25Value,
+                source: 'OpenAQ',
+                location: data.location || 'Unknown'
+            };
+            
+            displayAirQualityWidget();
+            addAirQualityBubbles(lat, lng);
+        }
+
+        /**
+         * Process AirNow API data
+         */
+        function processAirNowData(data, lat, lng) {
+            airQualityData = {
+                aqi: data.AQI || 50,
+                pm25: data.PM25 || null,
+                source: 'AirNow',
+                location: data.ReportingArea || 'Unknown'
+            };
+            
+            displayAirQualityWidget();
+            addAirQualityBubbles(lat, lng);
+        }
+
+        /**
+         * Show mock air quality data for demonstration
+         */
+        function showMockAirQualityData(lat, lng) {
+            // Generate realistic mock data
+            const mockAQI = Math.floor(Math.random() * 200) + 20;
+            const pollutants = ['pm25', 'pm10', 'o3', 'co', 'so2', 'no2'];
+            const mockPollutants = {};
+            let maxAQI = 0;
+            let responsiblePollutant = null;
+
+            // Generate mock concentrations for each pollutant
+            pollutants.forEach(pollutant => {
+                let value;
+                switch(pollutant) {
+                    case 'pm25':
+                        value = Math.random() * 50 + 5; // 5-55 µg/m³
+                        break;
+                    case 'pm10':
+                        value = Math.random() * 100 + 10; // 10-110 µg/m³
+                        break;
+                    case 'o3':
+                        value = Math.random() * 0.1 + 0.02; // 0.02-0.12 ppm
+                        break;
+                    case 'co':
+                        value = Math.random() * 10 + 1; // 1-11 ppm
+                        break;
+                    case 'so2':
+                        value = Math.random() * 50 + 5; // 5-55 ppb
+                        break;
+                    case 'no2':
+                        value = Math.random() * 100 + 10; // 10-110 ppb
+                        break;
+                }
+                
+                mockPollutants[pollutant] = value;
+                const aqi = calculateAQI(pollutant, value);
+                if (aqi && aqi > maxAQI) {
+                    maxAQI = aqi;
+                    responsiblePollutant = pollutant;
+                }
+            });
+
+            // Generate mock nearby stations
+            nearbyStations = [];
+            for (let i = 0; i < 8; i++) {
+                const angle = (Math.PI * 2 * i) / 8;
+                const distance = 0.01 + Math.random() * 0.05; // 1-6km radius
+                const stationLat = lat + Math.cos(angle) * distance;
+                const stationLng = lng + Math.sin(angle) * distance;
+                const stationAQI = Math.floor(Math.random() * 150) + 20;
+
+                nearbyStations.push({
+                    lat: stationLat,
+                    lng: stationLng,
+                    name: `Station ${i + 1}`,
+                    aqi: stationAQI,
+                    measurements: {}
+                });
+            }
+
+            airQualityData = {
+                aqi: maxAQI || mockAQI,
+                responsiblePollutant: responsiblePollutant || 'pm25',
+                pollutants: mockPollutants,
+                source: 'Demo Data',
+                location: 'Simulated Environment',
+                stations: nearbyStations,
+                lastUpdated: new Date().toISOString()
+            };
+
+            displayEnhancedAirQualityWidget();
+            addEnhancedAirQualityBubbles(lat, lng);
+            updateStatus('Using demo air quality data', 'success');
+        }
+
+        /**
+         * Display enhanced air quality widget
+         */
+        function displayEnhancedAirQualityWidget() {
+            const widget = document.getElementById('airQualityWidget');
+            const icon = document.getElementById('airQualityIcon');
+            const value = document.getElementById('airQualityValue');
+            const category = document.getElementById('airQualityCategory');
+            const description = document.getElementById('airQualityDescription');
+            const responsiblePollutant = document.getElementById('responsiblePollutant');
+            const dataSource = document.getElementById('dataSource');
+            const lastUpdated = document.getElementById('lastUpdated');
+            const pollutantGrid = document.getElementById('pollutantGrid');
+
+            if (!airQualityData) return;
+
+            const aqi = airQualityData.aqi;
+            const categoryInfo = getAQICategory(aqi);
+
+            // Update widget appearance
+            widget.className = `air-quality-widget enhanced ${categoryInfo.class}`;
+            widget.style.display = 'block';
+
+            // Update main content
+            icon.textContent = categoryInfo.icon;
+            value.textContent = aqi;
+            category.textContent = categoryInfo.title;
+            description.textContent = categoryInfo.description;
+
+            // Update responsible pollutant
+            if (airQualityData.responsiblePollutant) {
+                const pollutantName = airQualityData.responsiblePollutant.toUpperCase();
+                responsiblePollutant.textContent = `Primary: ${pollutantName}`;
+                responsiblePollutant.style.display = 'inline-block';
+                responsiblePollutant.style.backgroundColor = categoryInfo.color;
+                responsiblePollutant.style.color = 'white';
+            }
+
+            // Update data source and timestamp
+            dataSource.textContent = `Data: ${airQualityData.source}`;
+            lastUpdated.textContent = `Updated: ${new Date(airQualityData.lastUpdated).toLocaleTimeString()}`;
+
+            // Update pollutant grid
+            updatePollutantGrid();
+
+            // Add animation
+            widget.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                widget.style.transform = 'scale(1)';
+            }, 100);
+        }
+
+        /**
+         * Update pollutant grid with detailed data
+         */
+        function updatePollutantGrid() {
+            const pollutantGrid = document.getElementById('pollutantGrid');
+            if (!airQualityData || !airQualityData.pollutants) {
+                pollutantGrid.style.display = 'none';
+                return;
+            }
+
+            const pollutants = airQualityData.pollutants;
+            const pollutantNames = {
+                'pm25': 'PM2.5',
+                'pm10': 'PM10',
+                'o3': 'O₃',
+                'co': 'CO',
+                'so2': 'SO₂',
+                'no2': 'NO₂'
+            };
+
+            let gridHTML = '';
+            Object.keys(pollutants).forEach(pollutant => {
+                const value = pollutants[pollutant];
+                const unit = getPollutantUnit(pollutant);
+                const aqi = calculateAQI(pollutant, value);
+                const aqiColor = aqi ? getAQIColor(aqi) : '#666';
+
+                gridHTML += `
+                    <div class="pollutant-item">
+                        <div class="pollutant-name">${pollutantNames[pollutant] || pollutant.toUpperCase()}</div>
+                        <div class="pollutant-value">${value.toFixed(2)}</div>
+                        <div class="pollutant-unit">${unit}</div>
+                        ${aqi ? `<div class="pollutant-aqi" style="background-color: ${aqiColor};">AQI: ${aqi}</div>` : ''}
+                    </div>
+                `;
+            });
+
+            pollutantGrid.innerHTML = gridHTML;
+            pollutantGrid.style.display = 'grid';
+        }
+
+        /**
+         * Add enhanced air quality bubbles around user location
+         */
+        function addEnhancedAirQualityBubbles(lat, lng) {
+            // Remove existing bubbles
+            airQualityBubbles.forEach(bubble => map.removeLayer(bubble));
+            airQualityBubbles = [];
+
+            if (!airQualityData) return;
+
+            const aqi = airQualityData.aqi;
+            const category = getAQICategory(aqi);
+            const bubbleCount = Math.min(8, Math.max(3, Math.floor(aqi / 25)));
+
+            // Generate bubbles around user location
+            for (let i = 0; i < bubbleCount; i++) {
+                const angle = (Math.PI * 2 * i) / bubbleCount + Math.random() * 0.5;
+                const distance = 0.002 + Math.random() * 0.008; // 200m-1km radius
+                const bubbleLat = lat + Math.cos(angle) * distance;
+                const bubbleLng = lng + Math.sin(angle) * distance;
+                const size = 20 + Math.random() * 30; // 20-50px
+                const opacity = 0.6 + Math.random() * 0.4; // 0.6-1.0
+
+                const bubbleIcon = L.divIcon({
+                    className: 'air-quality-bubble-enhanced',
+                    html: `<div style="background-color: ${category.color}; width: ${size}px; height: ${size}px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.8); box-shadow: 0 4px 15px rgba(0,0,0,0.3); opacity: ${opacity};"></div>`,
+                    iconSize: [size, size],
+                    iconAnchor: [size/2, size/2]
+                });
+
+                const bubble = L.marker([bubbleLat, bubbleLng], { icon: bubbleIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="text-align: center;">
+                            <strong>${category.icon} Air Quality</strong><br>
+                            <small>AQI: ${aqi}</small><br>
+                            <small>${category.title}</small>
+                        </div>
+                    `);
+
+                airQualityBubbles.push(bubble);
+            }
+        }
+
 
         /**
          * Perform reverse geocoding using Nominatim API
